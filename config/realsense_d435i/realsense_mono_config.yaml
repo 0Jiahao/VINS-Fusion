@@ -2,16 +2,16 @@
 
 #common parameters
 #support: 1 imu 1 cam; 1 imu 2 cam: 2 cam; 
-imu: 0         
-num_of_cam: 2  
+imu: 1         
+num_of_cam: 1  
 
 imu_topic: "/camera/imu"
 image0_topic: "/camera/infra1/image_rect_raw"
-image1_topic: "/camera/infra2/image_rect_raw"
+
 output_path: "/home/jiahao/vins_output/"
 
 cam0_calib: "left.yaml"
-cam1_calib: "right.yaml"
+
 image_width: 640
 image_height: 480
    
