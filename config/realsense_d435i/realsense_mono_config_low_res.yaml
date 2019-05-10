@@ -3,43 +3,43 @@
 #common parameters
 #support: 1 imu 1 cam; 1 imu 2 cam: 2 cam; 
 imu: 1         
-num_of_cam: 2  
+num_of_cam: 1  
 
 imu_topic: "/camera/imu"
 image0_topic: "/camera/infra1/image_rect_raw"
-image1_topic: "/camera/infra2/image_rect_raw"
+
 output_path: "/home/jiahao/vins_output/"
 
-cam0_calib: "left_low_res.yaml"
-cam1_calib: "right_low_res.yaml"
+cam0_calib: "left_low_res_new.yaml"
+
 image_width: 424
 image_height: 240
    
 
 # Extrinsic parameter between IMU and Camera.
-estimate_extrinsic: 0   # 0  Have an accurate extrinsic parameters. We will trust the following imu^R_cam, imu^T_cam, don't change it.
+estimate_extrinsic: 1   # 0  Have an accurate extrinsic parameters. We will trust the following imu^R_cam, imu^T_cam, don't change it.
                         # 1  Have an initial guess about extrinsic parameters. We will optimize around your initial guess.
 
 body_T_cam0: !!opencv-matrix
    rows: 4
    cols: 4
    dt: d
-   data: [ 1.8608032885110148e-03, 1.0567455072438448e-02,
-       9.9994243149514073e-01, 1.4862070461038091e-02,
-       -9.9864031807395470e-01, -5.2074113227485341e-02,
-       2.4087027052940302e-03, 2.2849139683729484e-02,
-       5.2096569256265712e-02, -9.9858730996586564e-01,
-       1.0456187013631713e-02, 5.8981494519908424e-03, 0., 0., 0., 1. ]
+   data: [ -5.5893675906224516e-03, 6.5518100609671115e-03,
+       9.9996291568980789e-01, 1.7253397776115037e-02,
+       -9.9998401096292833e-01, -8.9497982778796725e-04,
+       -5.5836215489301622e-03, -1.4879314415269252e-02,
+       8.5836381023740582e-04, -9.9997813615900255e-01,
+       6.5567076750768782e-03, -3.7766121754649030e-02, 0., 0., 0., 1. ]
 body_T_cam1: !!opencv-matrix
    rows: 4
    cols: 4
    dt: d
-   data: [ 2.7121334037640832e-03, 1.2960830984631300e-02,
-       9.9991232675299480e-01, 1.5083900507416276e-02,
-       -9.9865497893389887e-01, -5.1737926663212530e-02,
-       3.3793483286198023e-03, -3.2814257796716415e-02,
-       5.1777189793714207e-02, -9.9857658885274292e-01,
-       1.2803078234777998e-02, 8.5484487394741869e-03, 0., 0., 0., 1. ]
+   data: [ -2.0137111402547259e-03, 6.0001108535866488e-03,
+       9.9997997161802643e-01, 1.7746582616948264e-02,
+       -9.9999733965739079e-01, -1.1370736856113339e-03,
+       -2.0069234103591849e-03, -5.6753923247476683e-02,
+       1.1250091489279357e-03, -9.9998135269272836e-01,
+       6.0023846291836769e-03, -3.7196389392084778e-02, 0., 0., 0., 1. ]
 
 #Multiple thread support
 multiple_thread: 1
