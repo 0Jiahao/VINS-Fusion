@@ -2,22 +2,22 @@
 
 #common parameters
 #support: 1 imu 1 cam; 1 imu 2 cam: 2 cam; 
-imu: 1         
-num_of_cam: 1  
+imu: 0        
+num_of_cam: 2  
 
 imu_topic: "/camera/imu"
 image0_topic: "/camera/infra1/image_rect_raw"
-
+image1_topic: "/camera/infra2/image_rect_raw"
 output_path: "/home/jiahao/vins_output/"
 
 cam0_calib: "left_low_res_new.yaml"
-
+cam1_calib: "right_low_res_new.yaml"
 image_width: 424
 image_height: 240
    
 
 # Extrinsic parameter between IMU and Camera.
-estimate_extrinsic: 1   # 0  Have an accurate extrinsic parameters. We will trust the following imu^R_cam, imu^T_cam, don't change it.
+estimate_extrinsic: 0   # 0  Have an accurate extrinsic parameters. We will trust the following imu^R_cam, imu^T_cam, don't change it.
                         # 1  Have an initial guess about extrinsic parameters. We will optimize around your initial guess.
 
 body_T_cam0: !!opencv-matrix
@@ -30,6 +30,16 @@ body_T_cam0: !!opencv-matrix
        -3.1264258899770803e-03, 7.4483356135794697e-04,
        2.1717921952341679e-03, -9.9999164781312433e-01,
        3.4623146381367320e-03, -1.0405516109021141e-02, 0., 0., 0., 1. ]
+body_T_cam1: !!opencv-matrix
+   rows: 4
+   cols: 4
+   dt: d
+   data: [ -4.0169016240032551e-03, 3.2638180547976403e-03,
+       9.9998660590682320e-01, 4.2295158259626792e-02,
+       -9.9998943663745776e-01, -2.2471969462067864e-03,
+       -4.0095784547167779e-03, -4.9593754192832004e-02,
+       2.2340803124889508e-03, -9.9999214876797415e-01,
+       3.2728103469670256e-03, -1.0380663442928042e-02, 0., 0., 0., 1. ]
 
 #Multiple thread support
 multiple_thread: 1
